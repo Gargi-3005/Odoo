@@ -1,0 +1,37 @@
+ <odoo>
+    <template id="report_payslip_inherit_custom"
+              inherit_id="om_hr_payroll.report_payslip">
+
+        <xpath expr="//table[1]" position="after">
+
+            <table class="table table-sm table-bordered">
+                <tr>
+                    <td><strong>Total Working Days</strong></td>
+                    <td><t t-esc="o.x_total_working_days"/></td>
+
+                    <td><strong>Paid Days</strong></td>
+                    <td><t t-esc="o.x_paid_days"/></td>
+                </tr>
+
+                <tr>
+                    <td><strong>Paid Leave</strong></td>
+                    <td><t t-esc="o.x_paid_leave"/></td>
+
+                    <td><strong>Unpaid Leave</strong></td>
+                    <td><t t-esc="o.x_unpaid_leave"/></td>
+                </tr>
+
+                <tr>
+                    <td><strong>Leave Balance</strong></td>
+                    <td><t t-esc="o.x_leave_balance"/></td>
+
+                    <td><strong>Salary Pay Date</strong></td>
+                    <td><t t-esc="o.x_salary_pay_date.strftime('%d/%m/%Y') if o.x_salary_pay_date else ''"/></td>
+                </tr>
+                
+            </table>
+
+        </xpath>
+
+    </template>
+</odoo>
